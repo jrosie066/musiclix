@@ -5,8 +5,17 @@ export const styles = (theme) => createStyles({
     background: theme.palette.background.default,
     height: '100vh',
   },
+  body: {
+    paddingTop: '30%',
+  },
   searchFieldContainer: {
-    marginTop: '30%',
     width: '100%',
+    marginTop: '20px',
+  },
+  title: {
+    marginLeft: '-6px',
+  },
+  tagline: {
+    color: theme.palette.text.primary,
   },
 });

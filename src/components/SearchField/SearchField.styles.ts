@@ -1,12 +1,12 @@
 import { createStyles } from '@material-ui/core';
 
-// uncomment the theme parameter if this component will
-// utilize your theme styles
 export const styles = (/* theme */) => createStyles({
   root: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
   button: {
-    padding: '0 10px',
+    marginLeft: '15px',
+    padding: '5px 35px',
   },
 });

@@ -12,15 +12,18 @@ export interface Props {
 const Home = (props: Props): JSX.Element => {
   const dispatch = useDispatch();
   const { classes } = props;
-  const handleSearchClick = (searchItem: string) => {
+  const handleSearchClick = (searchItem: string): void => {
     dispatch(searchArtistAction(searchItem));
   };
   return (
     <div className={classes.root}>
       <Container maxWidth="md">
-        <Grid container justify="center">
-          <Grid container item>
+        <Grid container justify="center" className={classes.body}>
+          <Grid container item className={classes.title}>
             <Title text="musiclix" />
+          </Grid>
+          <Grid container item className={classes.tagline}>
+            <div>Find all of the info on your favorite artists..</div>
           </Grid>
           <Grid item className={classes.searchFieldContainer}>
             <SearchField onSearchClick={handleSearchClick} />

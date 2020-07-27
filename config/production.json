@@ -1,0 +1,9 @@
+{
+  "artistAPI": {
+    "host": "http://ws.audioscrobbler.com/2.0",
+    "apiKey": "a542bec413d63ea3ab05ac0427499532",
+    "methods": {
+      "artistSearch": "artist.search"
+    }
+  }
+}
