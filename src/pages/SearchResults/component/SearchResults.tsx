@@ -22,7 +22,7 @@ const SearchResults = (props: Props): JSX.Element => {
           tabIndex={0}
           onKeyPress={() => handleOnClick(artist.mbid)}
         >
-          <ProfileCard id={artist.mbid} name={artist.name} onClick={handleOnClick} />
+          <ProfileCard id={artist.mbid} name={artist.name} />
         </div>
       ))}
     </div>

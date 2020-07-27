@@ -9,5 +9,6 @@ export default {
 export const TestTitle = () => (
   <ProfileCard
     name="Cher"
+    id="23423432"
   />
 );
