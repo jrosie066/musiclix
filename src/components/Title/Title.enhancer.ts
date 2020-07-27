@@ -1,8 +1,8 @@
-import { memo, FunctionComponent } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { memo, FunctionComponent } from 'react';
 import { compose } from 'redux';
-import { Props } from './SearchField';
-import { styles } from './SearchField.styles';
+import { styles } from './Title.styles';
+import { Props } from './Title';
 
 const enhance = compose<FunctionComponent<Props>>(
   memo,

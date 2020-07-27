@@ -19,6 +19,7 @@ const styles = {
       fontWeight: 'inherit',
       fontStyle: 'inherit',
       fontSize: '100%',
+      fontFamily: 'Source Sans',
       verticalAlign: 'baseline',
     },
     '*, :after, :before': {

@@ -1,6 +1,8 @@
-import { createUseStyles } from 'react-jss';
+import { createStyles } from '@material-ui/core';
 
-export const useStyles = createUseStyles({
+// uncomment the theme parameter if this component will
+// utilize your theme styles
+export const styles = (/* theme */) => createStyles({
   root: {
   },
 });

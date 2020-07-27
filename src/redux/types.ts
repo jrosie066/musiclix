@@ -7,6 +7,15 @@ export interface Sample {
   sample2: string;
 };
 
-export type SampleAction = Action<string> & {
+export type BaseAction = Action<string> & {
   payload: Record<string, any>;
 };
+export interface ArtistImage {
+  url: string;
+  size: string;
+};
+export interface Artist {
+  name: string;
+  mbid: string;
+  image: ArtistImage[];
+}

@@ -1,4 +1,5 @@
 module.exports = {
+  testURL: 'http://localhost:8080/',
   verbose: true,
   transform: {
     '^.+\\.(ts|js|html|tsx)$': 'ts-jest',
@@ -12,13 +13,13 @@ module.exports = {
     './config/jest/testShim.js',
   ],
   globals: {
-    'ts-jest': {
-      'tsConfig': './tsconfig.json',
+    "ts-jest": {
+      "tsConfig": './tsconfig.json',
       allowJs: true,
     }
   },
   moduleFileExtensions: ['tsx', 'ts', 'js'],
   preset: 'ts-jest',
-  testEnvironment: 'node',
-  coveragePathIgnorePatterns: ['/node_modules', '/*/*.test.tsx']
+  testEnvironment: 'jsdom',
+  coveragePathIgnorePatterns: ['/node_modules', '/*/*.test.tsx'],
 };

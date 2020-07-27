@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface Props {
-  classes: any;
+  classes?: any;
 };
 
 const SearchResults = (props: Props): JSX.Element => {

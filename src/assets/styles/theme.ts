@@ -5,12 +5,23 @@ export const theme = createMuiTheme({
     type: 'dark',
 
     primary: {
-      main: '#09132F',
+      main: '#29b6f6',
+      light: '#73e8ff',
+      dark: '#0086c3',
     },
     secondary: {
-      main: '#50A9DB',
+      main: '#f44336',
+      light: '#ff7961',
+      dark: '#ba000d',
     },
     background: {
-    }
+    },
+  },
+  typography: {
+    fontFamily: [
+      'Fjallae One',
+      'Lato',
+      'Source Sans'
+    ].join(''),
   },
 });
