@@ -19,9 +19,11 @@ export const theme = createMuiTheme({
   },
   typography: {
     fontFamily: [
-      'Fjallae One',
-      'Lato',
-      'Source Sans'
-    ].join(''),
+      // 'Fjalla One',
+      // 'Lato',
+      'Source Sans Pro',
+      'Arial',
+      'sans-serif'
+    ].join(','),
   },
 });

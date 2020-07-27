@@ -2,23 +2,23 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { JssProvider } from 'react-jss';
 import { BrowserRouter as Router } from 'react-router-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { jss } from '../assets/styles/global.styles';
 import { theme } from '../assets/styles/theme';
 
 interface Props {
-  // store: any;
+  store: any;
   routes: any;
 }
 
-const Root = ({ /* store, */routes }: Props) => (
+const Root = ({ store, routes }: Props): JSX.Element => (
   <JssProvider jss={jss}>
     <ThemeProvider theme={theme}>
-      {/* <Provider store={store}> */}
-      <Router>
-        {routes}
-      </Router>
-      {/* </Provider> */}
+      <Provider store={store}>
+        <Router>
+          {routes}
+        </Router>
+      </Provider>
     </ThemeProvider>
   </JssProvider>
 );

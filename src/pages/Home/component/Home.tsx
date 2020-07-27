@@ -1,16 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Container, Grid } from '@material-ui/core';
 import SearchField from '../../../components/SearchField';
 import Title from '../../../components/Title';
+import { searchArtistAction } from '../../../redux/search-reducer';
 
 export interface Props {
   classes?: any;
 };
 
 const Home = (props: Props): JSX.Element => {
+  const dispatch = useDispatch();
   const { classes } = props;
-  const handleSearchClick = (event) => {
-    console.log(event);
+  const handleSearchClick = (searchItem: string) => {
+    dispatch(searchArtistAction(searchItem));
   };
   return (
     <div className={classes.root}>

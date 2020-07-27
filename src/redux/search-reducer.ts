@@ -37,21 +37,22 @@ export const searchArtistAction = (artist: string) => async (dispatch) => {
         method: CONFIG.artistAPI.methods.artistSearch,
         artist,
         'api_key': CONFIG.artistAPI.apiKey,
+        format: 'json',
       },
     };
     const response = await axios.get(BASE_URL, axiosConfig);
-    dispatch(searchArtistsFailure(response.data.books));
+    dispatch(searchArtistsSuccess(response.data));
   } catch (error) {
     dispatch(searchArtistsFailure(error));
     throw error;
   }
 };
 export interface SearchState {
-  results: Artist[];
+  artists: Artist[];
 }
 
 export const searchInitialState: SearchState = {
-  results: [] as Artist[],
+  artists: [] as Artist[],
 };
 
 const searchReducer: Reducer<SearchState, BaseAction> = (
@@ -60,8 +61,8 @@ const searchReducer: Reducer<SearchState, BaseAction> = (
 ) => {
   switch (action.type) {
     case SearchActions.SEARCH_ARTISTS_SUCCESS: {
-      const { artist } = action.payload;
-      const mappedArtists = searchArtistResponseMapper(artist);
+      const { artists } = action.payload;
+      const mappedArtists = searchArtistResponseMapper(artists);
       return {
         ...currentState,
         ...mappedArtists,
@@ -69,8 +70,12 @@ const searchReducer: Reducer<SearchState, BaseAction> = (
       };
     }
     case (SearchActions.SEARCH_ARTISTS_FAILURE): {
-      // TODO: handle errors
-      return currentState;
+      const { error } = action.payload;
+
+      return {
+        ...currentState,
+        error,
+      };
     }
     default: { return currentState; }
   }

@@ -19,6 +19,7 @@ const mapImages = (artist): ArtistImage => artist.image
   });
 
 export const searchArtistResponseMapper = (response: any) => {
+  console.log(response);
   const artists = get(response, 'results.artistmatches.artist');
   const mappedArtists = artists.map((artist) => {
     const filtered = pick(artist, pickItems);
