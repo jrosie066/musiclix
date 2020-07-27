@@ -3,15 +3,16 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 export interface Props {
   classes?: any;
-  image: string;
+  id: string;
   name: string;
 };
 
 const ProfileCard = (props: Props): JSX.Element => {
-  const { classes, name } = props;
-  console.log(classes);
+  const {
+    classes, id, name,
+  } = props;
   return (
-    <Card variant="outlined">
+    <Card id={id} variant="outlined" className={classes.root}>
       <CardContent>
         <Typography variant="h4">{name}</Typography>
       </CardContent>
