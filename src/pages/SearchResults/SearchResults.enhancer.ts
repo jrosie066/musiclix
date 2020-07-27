@@ -3,9 +3,8 @@ import { memo, FunctionComponent } from 'react';
 import { compose } from 'redux';
 import { styles } from './component/SearchResults.styles';
 import { SearchResultsWrapper } from './wrapper/SearchResultsWrapper';
-import { Props } from './component/SearchResults';
 
-const enhance = compose<FunctionComponent<Props>>(
+const enhance = compose<FunctionComponent<any>>(
   memo,
   withStyles(styles),
   SearchResultsWrapper
