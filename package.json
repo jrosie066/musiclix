@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --color --config webpack.dev.config.js",
+    "start:build": "cross-env NODE_ENV=production webpack-dev-server --color --config webpack.static.config.js",
     "lint": "eslint --fix --ext .ts,.tsx,.js ${FOLDER:-src}",
     "test": "npx jest src --coverage",
     "build": "cross-env NODE_ENV=production node ./scripts/index.js",
