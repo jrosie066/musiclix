@@ -31,10 +31,9 @@ const InfoModal = (props: Props): JSX.Element => {
   return (
     <Modal
       open={isOpen}
-      // onClose={onClose}
     >
       <div style={modalStyle} className={classes.paper}>
-        <CloseIcon onClick={onClose} />
+        <CloseIcon className={classes.close} onClick={onClose} />
         {render()}
       </div>
 

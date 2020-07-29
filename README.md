@@ -24,3 +24,6 @@ App is deployed through AWS Amplify to this url: [https://master.d3brp1ag8h6yxh.
 
 Jamie Artin
 
+## TODO
+parse out the "read more" from the the summary and provide the link to click to profile (think this is the get profile)
+call top artists api to get items to display on front page

@@ -11,4 +11,11 @@ export const styles = (theme) => createStyles({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  close: {
+    float: 'right',
+    '&:hover': {
+      cursor: 'pointer',
+      color: theme.palette.secondary.main,
+    },
+  },
 });
