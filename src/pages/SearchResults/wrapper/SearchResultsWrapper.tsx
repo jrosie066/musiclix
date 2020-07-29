@@ -9,6 +9,7 @@ interface Props {
 const SearchResultsWrapper = (WrappedComponent: any) => {
   const SearchResultsPageWrapper = (props: Props): JSX.Element => {
     const search = useSelector((state: State) => state.search);
+    const selectedArtist = useSelector((state: State) => state.artist);
     const dispatch = useDispatch();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleOnClick = async (mbid: string): Promise<void> => {
@@ -23,6 +24,7 @@ const SearchResultsWrapper = (WrappedComponent: any) => {
       search,
       isModalOpen,
       onClick: handleOnClick,
+      selectedArtist,
       ...props,
     };
     return <WrappedComponent {...pageProps} />;
