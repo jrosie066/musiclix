@@ -12,4 +12,14 @@ export const styles = (/* theme */) => createStyles({
       boxShadow: '0 2px 12px 2px rgba(244, 67, 54,0.75)',
     },
   },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    padding: '20px',
+    fontSize: '2.5rem',
+  },
 });

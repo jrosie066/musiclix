@@ -1,5 +1,8 @@
 import React from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import {
+  Card, CardContent, Typography,
+} from '@material-ui/core';
+import SettingsVoiceIcon from '@material-ui/icons/SettingsVoice';
 
 export interface Props {
   classes?: any;
@@ -13,7 +16,13 @@ const ProfileCard = (props: Props): JSX.Element => {
   } = props;
   return (
     <Card id={id} variant="outlined" className={classes.root}>
-      <CardContent>
+      <CardContent className={classes.container}>
+        <SettingsVoiceIcon
+          color="secondary"
+          classes={{
+            root: classes.icon,
+          }}
+        />
         <Typography variant="h4">{name}</Typography>
       </CardContent>
     </Card>

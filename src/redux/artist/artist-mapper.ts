@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 import pick from 'lodash/pick';
 import set from 'lodash/set';
-// import { Artist } from '../types';
+import { Artist } from '../types';
 
 const pickItems = [
   'name',
@@ -10,7 +10,7 @@ const pickItems = [
   'tags',
   'bio'
 ];
-export const mapGetInfoResponse = (response: any): any => {
+export const mapGetInfoResponse = (response: any): Artist => {
   const artist = get(response, 'artist');
   const filteredArtist = pick(artist, pickItems);
   const tags = get(filteredArtist, 'tags.tag');

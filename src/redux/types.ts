@@ -11,11 +11,15 @@ export interface Artist {
   tags: Tag[];
   bio: Bio;
 }
+export interface ArtistInfoState {
+  artistInfo: Artist[];
+}
 export interface ArtistResult {
   name: string;
   mbid: string;
   image: ArtistImage[];
 }
+
 export type BaseAction = Action<string> & {
   payload: Record<string, any>;
 };

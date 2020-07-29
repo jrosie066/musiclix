@@ -1,7 +1,9 @@
 /* eslint-disable quote-props */
 import { Reducer } from 'redux';
 import axios from 'axios';
-import { Artist, BaseAction, ApiConfig } from '../types';
+import {
+  Artist, BaseAction, ApiConfig, ArtistInfoState,
+} from '../types';
 import { mapGetInfoResponse } from './artist-mapper';
 
 declare const CONFIG: ApiConfig;
@@ -38,9 +40,6 @@ export const getArtistInfoAction = (mbid: string) => async (dispatch) => {
     throw error;
   }
 };
-export interface ArtistInfoState {
-  artistInfo: Artist[];
-}
 
 export const artistInitialState: ArtistInfoState = {
   artistInfo: [] as Artist[],
