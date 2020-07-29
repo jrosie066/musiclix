@@ -6,7 +6,7 @@ export default {
   component: ProfileCard,
 };
 
-export const TestTitle = () => (
+export const SingleCard = () => (
   <ProfileCard
     name="Cher"
     id="23423432"

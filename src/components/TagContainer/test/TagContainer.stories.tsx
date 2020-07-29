@@ -20,4 +20,4 @@ const tags = [
     url: 'https://www.last.fm/tag/80s',
   }
 ];
-export const TestTitle = () => <TagContainer tags={tags} />;
+export const Container = () => <TagContainer tags={tags} />;

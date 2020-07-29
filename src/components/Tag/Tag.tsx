@@ -1,5 +1,7 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import { Chip } from '@material-ui/core';
+import { styles } from './Tag.styles';
 
 export interface Props {
   classes?: any;
@@ -22,4 +24,4 @@ const Tag = (props: Props): JSX.Element => {
   );
 };
 
-export { Tag };
+export default withStyles(styles)(Tag);

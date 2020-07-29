@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Grid } from '@material-ui/core';
 import SearchField from '../../../components/SearchField';
-import Title from '../../../components/Title';
+import Title from '../../../components/Title/Title';
 
 export interface Props {
   classes?: any;

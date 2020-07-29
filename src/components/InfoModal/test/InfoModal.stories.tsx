@@ -8,7 +8,7 @@ export default {
   component: InfoModal,
 };
 
-export const TestTitle = () => (
+export const Open = () => (
   <InfoModal
     isOpen
     onClose={action('close')}

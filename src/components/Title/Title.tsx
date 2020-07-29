@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, withStyles } from '@material-ui/core';
+import { styles } from './Title.styles';
 
 export interface Props {
   classes?: any;
@@ -11,4 +12,4 @@ const Title = (props: Props): JSX.Element => {
   return <Typography className={classes.root} variant="h1">{text}</Typography>;
 };
 
-export { Title };
+export default withStyles(styles)(Title);
