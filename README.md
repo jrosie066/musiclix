@@ -16,6 +16,10 @@ To run all unit tests
 
 `npm test`
 
+To view storybook sandbox
+
+`npm run storybook`
+
 ## Deployment
 
 App is deployed through AWS Amplify to this url: [https://master.d3brp1ag8h6yxh.amplifyapp.com/](https://master.d3brp1ag8h6yxh.amplifyapp.com/)
