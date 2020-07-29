@@ -20,11 +20,15 @@ const SearchResultsWrapper = (WrappedComponent: any) => {
         // navigate to error page and handle error
       }
     };
+    const handleModelClose = () => {
+      setIsModalOpen(false);
+    };
     const pageProps = {
       search,
       isModalOpen,
       onClick: handleOnClick,
       selectedArtist,
+      onClose: handleModelClose,
       ...props,
     };
     return <WrappedComponent {...pageProps} />;

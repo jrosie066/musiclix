@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '@material-ui/core/Modal';
+import CloseIcon from '@material-ui/icons/Close';
 import { rand } from '../../util/random';
 // import { Bio, Tag } from '../../redux/types';
 
@@ -30,9 +31,10 @@ const InfoModal = (props: Props): JSX.Element => {
   return (
     <Modal
       open={isOpen}
-      onClose={onClose}
+      // onClose={onClose}
     >
       <div style={modalStyle} className={classes.paper}>
+        <CloseIcon onClick={onClose} />
         {render()}
       </div>
 
