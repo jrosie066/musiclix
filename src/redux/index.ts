@@ -3,8 +3,8 @@ import {
   createStore, applyMiddleware, compose, combineReducers, Store,
 } from 'redux';
 import thunk from 'redux-thunk';
-import searchReducer, { SearchState } from './search-reducer';
-import { BaseAction } from './types';
+import searchReducer from './search/search-reducer';
+import { BaseAction, SearchState } from './types';
 
 declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION__: any }

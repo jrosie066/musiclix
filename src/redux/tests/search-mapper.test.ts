@@ -1,15 +1,15 @@
 /* eslint-disable max-len */
 import cloneDeep from 'lodash/cloneDeep';
 import mockResponse from './__mocks__/search-results-response.json';
-import { searchArtistResponseMapper } from '../search-mapper';
+import { mapSearchArtistResponse } from '../search/search-mapper';
 
-describe('#searchArtistResponseMapper', () => {
+describe('#mapSearchArtistResponse', () => {
   let response;
   beforeEach(() => {
     response = cloneDeep(mockResponse);
   });
   it('should properly map search artist response', () => {
-    const actual = searchArtistResponseMapper(response);
+    const actual = mapSearchArtistResponse(response);
     const expected = {
       artists: [
         {

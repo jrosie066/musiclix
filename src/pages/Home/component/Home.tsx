@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Container, Grid } from '@material-ui/core';
 import SearchField from '../../../components/SearchField';
 import Title from '../../../components/Title';
-import { searchArtistAction } from '../../../redux/search-reducer';
+import { searchArtistAction } from '../../../redux/search/search-reducer';
 import { SEARCH_RESULTS_PATH } from '../../../constants/route-paths';
 
 export interface Props {

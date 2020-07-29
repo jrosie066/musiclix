@@ -1,36 +1,31 @@
 /* eslint-disable quote-props */
 import { Reducer } from 'redux';
 import axios from 'axios';
-import { Artist, BaseAction } from './types';
-import { searchArtistResponseMapper } from './search-mapper';
+import {
+  BaseAction, SearchState, ApiConfig, ArtistResult,
+} from '../types';
+import { mapSearchArtistResponse } from './search-mapper';
 
-declare const CONFIG: any;
+declare const CONFIG: ApiConfig;
 
 const BASE_URL = CONFIG.artistAPI.host;
 
-/** ACTIONS */
-export const SearchActions = {
-  SEARCH_ARTISTS_INITIATED: 'search/SEARCH_ARTISTS_INITIATED',
-  SEARCH_ARTISTS_SUCCESS: 'search/SEARCH_ARTISTS_SUCCESS',
-  SEARCH_ARTISTS_FAILURE: 'search/SEARCH_ARTISTS_FAILURE',
-};
+export const SEARCH_ARTISTS_SUCCESS = 'search/SEARCH_ARTISTS_SUCCESS';
+export const SEARCH_ARTISTS_FAILURE = 'search/SEARCH_ARTISTS_FAILURE';
 
-export const searchArtistsInitiated = (): BaseAction => ({
-  type: SearchActions.SEARCH_ARTISTS_INITIATED,
-  payload: {},
-});
+/** ACTIONS */
 
 export const searchArtistsSuccess = (artists): BaseAction => ({
-  type: SearchActions.SEARCH_ARTISTS_SUCCESS,
+  type: SEARCH_ARTISTS_SUCCESS,
   payload: { artists },
 });
 
 export const searchArtistsFailure = (error): BaseAction => ({
-  type: SearchActions.SEARCH_ARTISTS_FAILURE,
+  type: SEARCH_ARTISTS_FAILURE,
   payload: { error },
 });
+
 export const searchArtistAction = (artist: string) => async (dispatch) => {
-  dispatch(searchArtistsInitiated());
   try {
     const axiosConfig = {
       params: {
@@ -47,12 +42,9 @@ export const searchArtistAction = (artist: string) => async (dispatch) => {
     throw error;
   }
 };
-export interface SearchState {
-  artists: Artist[];
-}
 
 export const searchInitialState: SearchState = {
-  artists: [] as Artist[],
+  artists: [] as ArtistResult[],
 };
 
 const searchReducer: Reducer<SearchState, BaseAction> = (
@@ -60,16 +52,16 @@ const searchReducer: Reducer<SearchState, BaseAction> = (
   action: BaseAction
 ) => {
   switch (action.type) {
-    case SearchActions.SEARCH_ARTISTS_SUCCESS: {
+    case SEARCH_ARTISTS_SUCCESS: {
       const { artists } = action.payload;
-      const mappedArtists = searchArtistResponseMapper(artists);
+      const mappedArtists = mapSearchArtistResponse(artists);
       return {
         ...currentState,
         ...mappedArtists,
 
       };
     }
-    case (SearchActions.SEARCH_ARTISTS_FAILURE): {
+    case (SEARCH_ARTISTS_FAILURE): {
       const { error } = action.payload;
 
       return {

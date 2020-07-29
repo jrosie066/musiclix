@@ -2,20 +2,21 @@ import cloneDeep from 'lodash/cloneDeep';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
-import searchReducer, { searchArtistAction, SEARCH_ARTISTS_SUCCESS } from '../search/search-reducer';
 import mockResponse from './__mocks__/search-results-response.json';
-import * as mapper from '../search/search-mapper';
+import artistReducer,
+{ getArtistInfoAction, GET_ARTIST_INFO_SUCCESS } from '../artist/artist-reducer';
+import * as mapper from '../artist/artist-mapper';
 
 const middlewares = [thunk];
-describe('#searchReducer', () => {
+describe('#artistReducer', () => {
   let response;
   let store;
-  let artist;
+  let mbid;
   beforeEach(() => {
     response = cloneDeep(mockResponse);
     const mockStore = configureMockStore(middlewares);
     store = mockStore({});
-    artist = 'post malone';
+    mbid = '12345';
   });
   describe('#searchArtistAction', () => {
     let axiosSpy;
@@ -25,10 +26,10 @@ describe('#searchReducer', () => {
     afterEach(jest.clearAllMocks);
     it('should make a success call to api', async () => {
       axiosSpy.mockResolvedValue(response);
-      await store.dispatch(searchArtistAction(artist));
+      await store.dispatch(getArtistInfoAction(mbid));
       const actualActions = store.getActions().map((action) => action.type);
       const expectedActions = [
-        'search/SEARCH_ARTISTS_SUCCESS'
+        'artist/GET_ARTIST_INFO_SUCCESS'
       ];
       expect(actualActions).toStrictEqual(expectedActions);
       expect(axiosSpy).toHaveBeenCalledTimes(1);
@@ -36,7 +37,7 @@ describe('#searchReducer', () => {
         'https://ws.audioscrobbler.com/2.0',
         expect.objectContaining({
           params: expect.objectContaining({
-            artist,
+            mbid,
           }),
         })
       );
@@ -49,13 +50,13 @@ describe('#searchReducer', () => {
       axiosSpy.mockRejectedValue(errorResponse);
       let error;
       try {
-        await store.dispatch(searchArtistAction(artist));
+        await store.dispatch(getArtistInfoAction(mbid));
       } catch (e) {
         error = e;
       }
       const actualActions = store.getActions().map((action) => action.type);
       const expectedActions = [
-        'search/SEARCH_ARTISTS_FAILURE'
+        'artist/GET_ARTIST_INFO_FAILURE'
       ];
       expect(actualActions).toStrictEqual(expectedActions);
       expect(axiosSpy).toHaveBeenCalledTimes(1);
@@ -63,7 +64,7 @@ describe('#searchReducer', () => {
         'https://ws.audioscrobbler.com/2.0',
         expect.objectContaining({
           params: expect.objectContaining({
-            artist,
+            mbid,
           }),
         })
       );
@@ -74,7 +75,7 @@ describe('#searchReducer', () => {
     let mapperMock;
     let currentState;
     beforeEach(() => {
-      mapperMock = jest.spyOn(mapper, 'mapSearchArtistResponse');
+      mapperMock = jest.spyOn(mapper, 'mapGetInfoResponse');
       currentState = {};
     });
     it('should update store on success action', () => {
@@ -84,10 +85,10 @@ describe('#searchReducer', () => {
       };
       mapperMock.mockReturnValue(expectedResponse);
       const action = {
-        type: SEARCH_ARTISTS_SUCCESS,
-        payload: { artist: { artist: { name: 'Lizzo' } } },
+        type: GET_ARTIST_INFO_SUCCESS,
+        payload: { info: { artist: { name: 'Lizzo' } } },
       };
-      const actual = searchReducer(currentState, action);
+      const actual = artistReducer(currentState, action);
       expect(actual).toStrictEqual(expectedResponse);
     });
     // TODO: finish error state testing

@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import { ArtistImage } from './types';
+import { ArtistImage } from '../types';
 
 const pickItems = [
   'name',
@@ -8,6 +8,7 @@ const pickItems = [
   'image'
 ];
 
+// tODO remove - images aren't showing up
 const mapImages = (artist): ArtistImage => artist.image
   .filter((img) => img.size === 'medium' || img.size === 'large')
   .map((img) => {
@@ -18,8 +19,7 @@ const mapImages = (artist): ArtistImage => artist.image
     };
   });
 
-export const searchArtistResponseMapper = (response: any) => {
-  console.log(response);
+export const mapSearchArtistResponse = (response: any) => {
   const artists = get(response, 'results.artistmatches.artist');
   const mappedArtists = artists.map((artist) => {
     const filtered = pick(artist, pickItems);
