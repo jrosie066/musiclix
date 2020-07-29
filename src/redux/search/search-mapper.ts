@@ -1,32 +1,21 @@
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import { ArtistImage } from '../types';
 
 const pickItems = [
   'name',
-  'mbid',
-  'image'
+  'mbid'
 ];
 
-// tODO remove - images aren't showing up
-const mapImages = (artist): ArtistImage => artist.image
-  .filter((img) => img.size === 'medium' || img.size === 'large')
-  .map((img) => {
-    const url = get(img, '#text');
-    return {
-      url,
-      size: img.size,
-    };
-  });
-
+/**
+ * Filters out important information from lastfm artist search and
+ * returns first page of data
+ * @param response api response from lastfm artistsearch
+ */
 export const mapSearchArtistResponse = (response: any) => {
   const artists = get(response, 'results.artistmatches.artist');
   const mappedArtists = artists.map((artist) => {
     const filtered = pick(artist, pickItems);
-    const images = mapImages(filtered);
-    filtered.image = images;
     return filtered;
   });
-  // picking middle of the road sizes just to reduce the images array for now
   return { artists: mappedArtists };
 };

@@ -47,6 +47,7 @@ export const searchInitialState: SearchState = {
   artists: [] as ArtistResult[],
 };
 
+/** REDUCER */
 const searchReducer: Reducer<SearchState, BaseAction> = (
   currentState: SearchState = searchInitialState,
   action: BaseAction

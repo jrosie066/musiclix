@@ -27,12 +27,23 @@ export type BaseAction = Action<string> & {
 export interface Bio {
   summary: string;
 }
+export interface Charts {
+  name: string;
+  playcount: string;
+  listeners: string;
+  url: string;
+  mbid: string;
+}
+export interface ChartState {
+  artists: Charts[];
+}
 interface Config {
   host: string;
   apiKey: string;
   methods: {
     artistSearch: string;
     getArtistInfo: string;
+    charts: string;
   };
 }
 export interface ApiConfig {
