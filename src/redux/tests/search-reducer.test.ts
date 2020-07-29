@@ -78,11 +78,12 @@ describe('#searchReducer', () => {
       currentState = {};
     });
     it('should update store on success action', () => {
-      const expectedResponse = {
+      const artists = [{
         name: 'Lizzo',
         mbid: '1234',
-      };
-      mapperMock.mockReturnValue(expectedResponse);
+      }];
+      const expectedResponse = { artists };
+      mapperMock.mockReturnValue(artists);
       const action = {
         type: SEARCH_ARTISTS_SUCCESS,
         payload: { artist: { artist: { name: 'Lizzo' } } },

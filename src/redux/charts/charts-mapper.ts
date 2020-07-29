@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import pick from 'lodash/pick';
+import { Charts } from '../types';
 
 const pickItems = [
   'name',
@@ -14,7 +15,7 @@ const pickItems = [
  * @param response api response from lastfm gettopartists
  */
 
-export const mapChartsResponse = (response: any) => {
+export const mapChartsResponse = (response: any): Charts[] => {
   const chartArtists = get(response, 'artists.artist');
   const mappedArtists = chartArtists.slice(0, 5).map((artist) => {
     const filtered = pick(artist, pickItems);

@@ -6,7 +6,7 @@ import { Artist } from '../types';
 const pickItems = [
   'name',
   'mbid',
-  // 'similar', potentially add
+  // 'similar', TODO: potentially add
   'tags',
   'bio'
 ];

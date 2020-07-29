@@ -58,7 +58,7 @@ const searchReducer: Reducer<SearchState, BaseAction> = (
       const mappedArtists = mapSearchArtistResponse(artists);
       return {
         ...currentState,
-        ...mappedArtists,
+        artists: mappedArtists,
 
       };
     }

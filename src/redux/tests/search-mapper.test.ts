@@ -10,18 +10,16 @@ describe('#mapSearchArtistResponse', () => {
   });
   it('should properly map search artist response', () => {
     const actual = mapSearchArtistResponse(response);
-    const expected = {
-      artists: [
-        {
-          name: 'Cher',
-          mbid: 'bfcc6d75-a6a5-4bc6-8282-47aec8531818',
-        },
-        {
-          name: 'Cheryl Cole',
-          mbid: '2d499150-1c42-4ffb-a90c-1cc635519d33',
-        }
-      ],
-    };
+    const expected = [
+      {
+        name: 'Cher',
+        mbid: 'bfcc6d75-a6a5-4bc6-8282-47aec8531818',
+      },
+      {
+        name: 'Cheryl Cole',
+        mbid: '2d499150-1c42-4ffb-a90c-1cc635519d33',
+      }
+    ];
     expect(actual).toStrictEqual(expected);
   });
 });

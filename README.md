@@ -33,6 +33,7 @@ Jamie Artin
 * call top artists api to get items to display on front page for a quick reference
 * finish test cases
 * handle errors
+* finish typing items
 * reorganize modal to allow for more bio information
 * call artist.gettoptracks to get top 5 tracks for the artist and add to bio modal on display - would be added to the artist reducer
 * call artist.gettopalbums to get top 5 albums for the artist and add to bio modal on display - would be added to the artist reducer
