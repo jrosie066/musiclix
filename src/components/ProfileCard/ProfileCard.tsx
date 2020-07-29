@@ -23,7 +23,7 @@ const ProfileCard = (props: Props): JSX.Element => {
             root: classes.icon,
           }}
         />
-        <Typography variant="h4">{name}</Typography>
+        <Typography variant="h4" className={classes.artistName}>{name}</Typography>
       </CardContent>
     </Card>
   );

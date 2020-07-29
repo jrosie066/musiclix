@@ -19,7 +19,10 @@ export const styles = (/* theme */) => createStyles({
     alignItems: 'center',
   },
   icon: {
-    padding: '20px',
+    marginBottom: '8px',
     fontSize: '2.5rem',
+  },
+  artistName: {
+    fontSize: '1.5rem',
   },
 });
